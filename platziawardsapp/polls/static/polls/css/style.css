@@ -53,6 +53,12 @@ h1
     margin-bottom: 1rem;
 }
 
+fieldset
+{
+    border: 1px solid var(--gold);
+    padding: 1rem;
+}
+
 /* lists */
 main a
 {
@@ -77,8 +83,9 @@ fieldset, main ul
 
 li
 {
-    border: 1px var(--gold) solid;
+    border: 1px solid var(--gold);
     padding: 1.6rem 1rem;
+    width: 30vw;
 }
 
 /* form button */
@@ -128,4 +135,12 @@ footer > a
 .box-button
 {
     display: inline-flex;
+}
+
+.sub-fieldset
+{
+    display: flex;
+    gap: 1.6rem;
+    border: 1px solid silver;
+    padding: 0.5rem;
 }
