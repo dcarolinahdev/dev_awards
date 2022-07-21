@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     {% load static %}
     {% block head_content %}{% endblock %}
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <div class="container">
-        {% block container %}
-        {% endblock%}
-    </div>
+    {% block container %}
+    {% endblock%}
+    {% block footer %}
+    {% endblock%}
 </body>
 </html>

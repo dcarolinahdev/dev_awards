@@ -1,6 +1,11 @@
 :root
 {
-    --gray-blue: #828282;
+    --border-button: #828282;
+    --box-shadow-gold: #cc9838;
+    --text-shadow-gold: #dd983e;
+
+    --gold: #71632d;
+    --text_main: silver;
 }
 
 *
@@ -10,36 +15,115 @@
     margin: 0;
 }
 
+/* -------- remember -------- */
+
+/* A) selector descendente: sin importar el nivel de profundudad.
+ *    ej: main a
+ * B) selector hijo directo: solo el primer nivel de profundidad.
+ *    ej: form > input
+ * C) selector adyacente: elementos seguidos.
+ *    ej: fieldset + input
+*/
+
+/* ---------- main ---------- */
 html
 {
     font-size: 62.5%;
 }
 
-/*tag {
-    background: white url("../img/wallp_awards.jpg") no-repeat;
-}*/
-
-.container > .center-polls {
+body
+{
     display: flex;
-    align-items: center;
-    justify-content: center;
-
-    min-height: 50vh;
-    font-size: 1.8rem;
-}
-
-.center-polls-v {
     flex-direction: column;
+    align-items: center; /* v */
+    justify-content: center; /* h */
+
+    background: hsl(204, 100%, 5%);
+    height: 80vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text_main);
 }
 
-.center-polls ul {
+/* ---------- content ---------- */
+
+h1
+{
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+/* lists */
+main a
+{
+    color: var(--text_main);
+    text-decoration: none;
+}
+
+main ul
+{
     list-style-type: none;
 }
 
-form h1 {
-    color: var(--gray-blue);
+fieldset, main ul
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.4rem;
 }
 
-li, li a, form label {
-    color: green;
+/* margin botton to button */
+main ul, fieldset
+{
+    margin-bottom: 3rem;
+}
+
+/* form button */
+fieldset + input, div.box-button a
+{
+    box-shadow: inset 0px 1px 3px 0px var(--box-shadow-gold);
+    background: var(--gold);
+    border-radius: 5px;
+    border: 1px solid var(--border-button);
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: white;
+    text-shadow: 0px -1px 0px var(--text-shadow-gold);
+    padding: 0.8rem;
+}
+
+/* ---------- footer ---------- */
+footer
+{
+    display: flex;
+    justify-content: center; /* h */
+    align-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 0rem;
+}
+
+footer > a
+{
+    color: var(--gold);
+    text-decoration: none;
+}
+
+/* ---------- content ---------- */
+
+.main-box
+{
+    margin-bottom: 1.6rem;
+}
+
+.results
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.box-button
+{
+    display: inline-flex;
 }

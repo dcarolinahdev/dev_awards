@@ -7,37 +7,42 @@
 {% endblock %}
 
 {% block container %}
-    <div class="center-polls">
-        <form action="{% url 'polls:vote' question.id %}" method="POST">
-            {% csrf_token %}
-            <fieldset>
-                <legend><h1>{{ question.question_text }}</h1></legend>
+    <div class="main-box">
+        <header>
+            <h1>{{ question.question_text }}</h1>
+        </header>
 
-                {% if error_message %}
-                    <p><strong>{{ error_message }}</strong></p>
-                {% endif %}
+        <main>
+            <form action="{% url 'polls:vote' question.id %}" method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
 
-                {% for choice in question.choice_set.all %}
-                    <input
-                        type="radio"
-                        name="choice"
-                        id="choice{{ forloop.counter }}"
-                        value="{{ choice.id }}"
-                    >
-                    <label for="choice{{ forloop.counter }}">
-                        {{ choice.choice_text }}
-                    </label>
-                    <br>
-                {% endfor %}
-            </fieldset>
-            <input type="submit" value="Votar">
-        </form>
+                    {% for choice in question.choice_set.all %}
+                        <div class="sub-fieldset">
+                            <input
+                            type="radio"
+                            name="choice"
+                            id="choice{{ forloop.counter }}"
+                            value="{{ choice.id }}">
+                            <label for="choice{{ forloop.counter }}">
+                                {{ choice.choice_text }}
+                            </label>
+                        </div>
+                    {% endfor %}
+                </fieldset>
+
+                <input type="submit" value="Votar">
+            </form>
+        </main>
     </div>
 {% endblock %}
 
-<!--<h1>{{ question.question_text }}</h1>
-<ul>
-    {% for choice in question.choice_set.all %}
-        <li>{{ choice.choice_text }}</li>
-    {% endfor %}
-</ul>-->
+{% block footer %}
+    <footer>
+        <a href="http://platzi.com">Platzi</a>
+        <a href="#">Términos y condiciones</a>
+    </footer>
+{% endblock %}

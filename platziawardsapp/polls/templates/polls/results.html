@@ -2,18 +2,34 @@
 {% load static %}
 
 {% block head_content %}
-    <title>Platzi Awards | Question</title>
+    <title>Platzi Awards | Results</title>
     <link rel="stylesheet" href="{% static 'polls/css/style.css' %}">
 {% endblock %}
 
 {% block container %}
-    <div class="center-polls center-polls-v">
-        <h1>{{ question.question_text }}</h1>
-        <ul>
-            {% for choice in question.choice_set.all %}
-                <li>{{ choice.choice_text }} -- {{ choice.votes }} voto{{ choice.votes|pluralize }}</li>
-            {% endfor %}
-        </ul>
-        <a href="{% url 'polls:detail' question.id %}">¿Te gustaría votar de nuevo?</a>
+    <div class="main-box">
+        <header>
+            <h1>{{ question.question_text }}</h1>
+        </header>
+
+        <main>
+            <div class="results">
+                <ul>
+                    {% for choice in question.choice_set.all %}
+                        <li>{{ choice.choice_text }} -- <b>{{ choice.votes }} voto{{ choice.votes|pluralize }}</b></li>
+                    {% endfor %}
+                </ul>
+                <div class="box-button">
+                    <a href="{% url 'polls:detail' question.id %}">¿Te gustaría votar de nuevo?</a>
+                </div>
+            </div>
+        </main>
     </div>
+{% endblock %}
+
+{% block footer %}
+    <footer>
+        <a href="http://platzi.com">Platzi</a>
+        <a href="#">Términos y condiciones</a>
+    </footer>
 {% endblock %}

@@ -7,15 +7,28 @@
 {% endblock %}
 
 {% block container %}
-    <div class="center-polls">
-        {% if latest_question_list %}
-        <ul>
-            {% for question in latest_question_list %}
-                <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-            {% endfor %}
-        </ul>
-        {% else %}
-        <p>No polls are available.</p>
-        {% endif %}
+    <div class="main-box">
+        <header>
+            <h1>Premios Platzi App</h1>
+        </header>
+
+        <main>
+            {% if latest_question_list %}
+                <ul>
+                    {% for question in latest_question_list %}
+                        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No polls are available.</p>
+            {% endif %}
+        </main>
     </div>
+{% endblock %}
+
+{% block footer %}
+    <footer>
+        <a href="http://platzi.com">Platzi</a>
+        <a href="#">Términos y condiciones</a>
+    </footer>
 {% endblock %}
