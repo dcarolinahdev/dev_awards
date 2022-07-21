@@ -71,12 +71,14 @@ fieldset, main ul
     flex-direction: column;
     justify-content: space-between;
     gap: 0.4rem;
+    /* margin botton to button */
+    margin-bottom: 3rem;
 }
 
-/* margin botton to button */
-main ul, fieldset
+li
 {
-    margin-bottom: 3rem;
+    border: 1px var(--gold) solid;
+    padding: 1.6rem 1rem;
 }
 
 /* form button */
