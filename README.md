@@ -1,18 +1,29 @@
 # Platzi awards app
 
-a poll app based on official Django documentation, it includes topics as:
+---
 
-- Models
-- Views (function base views and class based views)
-- Templates (with template inheritance based on jinja 2)
-- Forms (forms.Form and form.ModelForm)
-- Static Files
-- Media files
-- Django admin
-- Django authentication
-- Unit test
+> ***v1.1*** - This is an base project in a learning path; a poll app based on official Django documentation, it includes topics as:
 
-***v1.1***
+*Some features*
+
+- The views in this project are function-based and class-based views.
+
+- It uses templates with template inheritance based on jinja 2.
+
+- It uses different types of forms (forms.Form and form.ModelForm).
+
+- It doesn't uses media file management.
+
+- Model registrations on the admin site have basic customization.
+
+- The project includes unit tests like:
+    - assertEqual
+    - assertIs
+    - assertTrue / assertFalse
+    - assertQuerysetEqual
+    - assertContains
+
+- The project uses sqlite3 (currently) as the database.
 
 ## Requirements and versions
 
