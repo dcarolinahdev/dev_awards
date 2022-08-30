@@ -1,4 +1,5 @@
 # Platzi awards app
+
 a poll app based on official Django documentation, it includes topics as:
 
 - Models
@@ -11,8 +12,38 @@ a poll app based on official Django documentation, it includes topics as:
 - Django authentication
 - Unit test
 
+***v1.1***
+
 ## Requirements and versions
+
 - ***Django=3.2.9***
+
+## How to run locally?
+
+```
+python3 manage.py createsuperuser
+
+i.e.
+    admin
+    admin1234.
+
+python3 manage.py makemigrations
+
+python3 manage.py migrate
+```
+```
+python3 manage.py runserver
+```
+
+## Endpoints
+
+| route | meaning |
+| --- | --- |
+| /admin/ | django admin site |
+| / | poll list |
+| /poll/{poll_id}/detail/ | show a poll |
+| /poll/{poll_id}/results/ | show results for a poll |
+| /poll/{question_id}/vote/ | vote a poll |
 
 ## Notes
 
