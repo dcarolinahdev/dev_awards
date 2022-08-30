@@ -31,6 +31,19 @@ def results(request, question_id):
 """
 
 class IndexView(generic.ListView):
+    """
+    **Question list**
+
+    This view render a list of questions published until _today_ in descending order of published date.
+
+    Model: **Question**
+
+    Template: **polls/index.html**
+
+    Context:
+
+    - **latest_question_list**: alias for default list.
+    """
     template_name = "polls/index.html"
     context_object_name = "latest_question_list"
 
@@ -39,6 +52,15 @@ class IndexView(generic.ListView):
         return Question.objects.filter(pub_date__lte=timezone.now()).order_by("-pub_date")
 
 class DetailView(generic.DetailView):
+    """
+    **Question detailed**
+
+    This view render a detailed question. Only if question was posted.
+
+    Model: **Question**
+
+    Template: **polls/detail.html**
+    """
     model = Question
     template_name = "polls/detail.html"
 
@@ -47,10 +69,33 @@ class DetailView(generic.DetailView):
         return Question.objects.filter(pub_date__lte=timezone.now())
 
 class ResultView(generic.DetailView):
+    """
+    **Voting results**
+
+    This view render voting results.
+
+    Model: **Question**
+
+    Template: **polls/results.html**
+    """
     model = Question
     template_name = "polls/results.html"
 
 def vote(request, question_id):
+    """
+    **Vote for a question**
+
+    This view render vote for a question.
+    Raise a 404 exception if question is not found.
+
+    Model: **Question**, **Choice**
+
+    Template: **blog/post_list.html**
+
+    Context:
+
+    - **question_id**: question for which results will be printed.
+    """
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST["choice"])
